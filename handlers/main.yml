@@ -1,0 +1,6 @@
+---
+- name: Restart monitoring agent
+  service:
+    name: "{{ agent_service_name }}"
+    state: restarted
+  listen: restart-agent

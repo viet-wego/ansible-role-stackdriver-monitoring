@@ -1,0 +1,32 @@
+---
+# your local key file downloaded from google iam
+key_file: "your-project-stackdriver-agent.json"
+
+# google authenticated file on the machine
+auth_dir: "/etc/google/auth/"
+auth_file_name: "application_default_credentials.json"
+auth_file: "{{ auth_dir }}{{ auth_file_name }}"
+
+# script to install the agent
+install_script_url: "https://dl.google.com/cloudagents/install-monitoring-agent.sh"
+install_script_file: "{{ ansible_env.HOME }}/install-monitoring-agent.sh"
+agent_service_name: stackdriver-agent
+
+# collectd conf directory
+config_dir: "/opt/stackdriver/collectd/etc/collectd.d/"
+
+
+# postgresql plugin
+postgresql_template: postgresql.conf.j2
+postgresql_conf_file: "{{ config_dir }}postgresql.conf"
+postgresql_dbs:
+- { host: "localhost", port: 5432, db_name: "postgres", user: "user", pass: "password" }
+
+# redis plugin
+redis_template: redis.conf.j2
+redis_conf_file: "{{ config_dir }}redis.conf"
+redis_instances:
+- { host: "localhost", port: 6379, node_name: "node1"}
+
+
+

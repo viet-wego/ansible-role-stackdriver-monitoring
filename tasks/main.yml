@@ -1,0 +1,5 @@
+---
+- import_tasks: 
+  - agent.yml
+#  - redis_plugin.yml
+#  - postgresql_plugin.yml

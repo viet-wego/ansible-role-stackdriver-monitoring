@@ -1,0 +1,20 @@
+# Make sure the statistics collector is enabled in your PostgreSQL configuration.
+LoadPlugin postgresql
+<Plugin "postgresql">
+    # Each database needs a separate Database section.
+
+    {% for item in postgresql_dbs %}
+    <Database "{{ item.db_name }}">
+        Host "{{ item.host }}"
+        Port "{{ item.port }}"
+        User "{{ item.user }}"
+        Password "{{ item.pass }}"
+        Query backends
+        Query transactions
+        Query queries
+        Query table_states
+        Query disk_io
+        Query disk_usage
+    </Database>
+    {% endfor %}
+</Plugin>

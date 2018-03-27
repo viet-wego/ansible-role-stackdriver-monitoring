@@ -1,0 +1,8 @@
+---
+- name: Configure
+  template:
+    src: "{{ postgresql_template }}"
+    dest: "{{ postgresql_conf_file }}"
+    backup: yes
+    force: yes
+  notify: restart-agent

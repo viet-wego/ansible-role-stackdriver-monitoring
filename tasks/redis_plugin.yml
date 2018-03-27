@@ -1,0 +1,16 @@
+---
+- name: Install hiredis
+  apt:
+    # for Ubuntu 16.04 LTS & Debian 9 should use libhiredis0.13
+    pkg: libhiredis0.10
+    update_cache: yes
+    cache_valid_time: 86400
+    state: present
+
+- name: Configure
+  template:
+    src: "{{ redis_template }}"
+    dest: "{{ redis_conf_file }}"
+    backup: yes
+    force: yes
+  notify: restart-agent

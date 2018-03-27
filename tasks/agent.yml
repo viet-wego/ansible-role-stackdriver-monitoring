@@ -1,0 +1,28 @@
+---
+- name: Create directories
+  file: 
+    path: "{{ auth_dir }}"
+    state: directory
+
+- name: Copy private key
+  copy:
+    src: "{{ key_file }}"
+    dest: "{{ auth_file }}"
+    owner: root
+    group: root
+    mode: 0400
+
+- name: Download install script
+  get_url:
+    url: "{{ install_script_url }}"
+    dest: "{{ install_script_file }}"
+
+- name: Install agent
+  command: "{{ install_script_file }}"
+
+- name: Verify service is running
+  service:
+    name: "{{ agent_service_name }}"
+    state: running
+    enabled: yes
+
