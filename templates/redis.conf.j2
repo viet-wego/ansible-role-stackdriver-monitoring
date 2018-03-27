@@ -1,11 +1,11 @@
 # Make sure you've installed the hiredis/libhiredis packages.
 LoadPlugin redis
 <Plugin "redis">
-    {% for item in redis_instances %}
+{% for item in redis_instances %}
     <Node "{{ item.node_name }}">
         Host "{{ item.host }}"
         Port "{{ item.port }}"
         Timeout 2000
     </Node>
-    {% endfor %}
+{% endfor %}
 </Plugin>

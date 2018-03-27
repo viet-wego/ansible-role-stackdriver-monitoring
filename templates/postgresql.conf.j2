@@ -3,7 +3,7 @@ LoadPlugin postgresql
 <Plugin "postgresql">
     # Each database needs a separate Database section.
 
-    {% for item in postgresql_dbs %}
+{% for item in postgresql_dbs %}
     <Database "{{ item.db_name }}">
         Host "{{ item.host }}"
         Port "{{ item.port }}"
@@ -16,5 +16,5 @@ LoadPlugin postgresql
         Query disk_io
         Query disk_usage
     </Database>
-    {% endfor %}
+{% endfor %}
 </Plugin>
