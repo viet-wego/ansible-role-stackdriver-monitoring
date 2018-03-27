@@ -8,8 +8,9 @@ auth_file_name: "application_default_credentials.json"
 auth_file: "{{ auth_dir }}{{ auth_file_name }}"
 
 # script to install the agent
+user: "your-user"
 install_script_url: "https://dl.google.com/cloudagents/install-monitoring-agent.sh"
-install_script_file: "{{ ansible_env.HOME }}/install-monitoring-agent.sh"
+install_script_file: "/home/{{ user }}/install-monitoring-agent.sh"
 agent_service_name: stackdriver-agent
 
 # collectd conf directory

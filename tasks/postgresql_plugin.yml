@@ -1,5 +1,5 @@
 ---
-- name: Configure
+- name: Configure postgresql
   template:
     src: "{{ postgresql_template }}"
     dest: "{{ postgresql_conf_file }}"

@@ -7,7 +7,7 @@
     cache_valid_time: 86400
     state: present
 
-- name: Configure
+- name: Configure redis
   template:
     src: "{{ redis_template }}"
     dest: "{{ redis_conf_file }}"

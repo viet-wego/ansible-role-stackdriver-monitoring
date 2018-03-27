@@ -16,6 +16,7 @@
   get_url:
     url: "{{ install_script_url }}"
     dest: "{{ install_script_file }}"
+    mode: 0555
 
 - name: Install agent
   command: "{{ install_script_file }}"
@@ -23,6 +24,6 @@
 - name: Verify service is running
   service:
     name: "{{ agent_service_name }}"
-    state: running
+    state: started
     enabled: yes
 
