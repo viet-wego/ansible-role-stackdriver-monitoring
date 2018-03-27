@@ -1,5 +1,9 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: test_server
+  become: true
+  become_user: root
+  become_method: sudo
+  serial:
+    "100%"
   roles:
-    - ansible-role-stackdriver-agent
+    - ../ansible-role-stackdriver-agent
