@@ -1,3 +1,4 @@
-files/
-tests/
+
+files/*
+tests/*
 test.sh
