@@ -18,12 +18,14 @@ config_dir: "/opt/stackdriver/collectd/etc/collectd.d/"
 
 
 # postgresql plugin
+install_postgresql: no
 postgresql_template: postgresql.conf.j2
 postgresql_conf_file: "{{ config_dir }}postgresql.conf"
 postgresql_dbs:
 - { host: "localhost", port: 5432, db_name: "postgres", user: "user", pass: "password" }
 
 # redis plugin
+install_redis: no
 redis_template: redis.conf.j2
 redis_conf_file: "{{ config_dir }}redis.conf"
 redis_instances:

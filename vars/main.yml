@@ -1,2 +1,7 @@
 ---
-# vars file for ansible-role-stackdriver-agent
+user: whoami
+key_file: "api-project-stackdriver-agent.json"
+install_redis: yes
+redis_instances:
+- { host: "localhost", port: 7000, node_name: "7000"}
+- { host: "localhost", port: 7001, node_name: "7001"}
